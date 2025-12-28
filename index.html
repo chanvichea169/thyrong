@@ -11,7 +11,7 @@
         --primary-rose: #ff4d6d;
         --deep-bg: #1a0208;
         --accent-pink: #ff85a1;
-        --glass: rgba(255, 255, 255, 0.03);
+        --rose-petal: #ff758c;
         --gold-light: #fff5e1;
       }
 
@@ -36,11 +36,11 @@
       /* Magical Aura Follower */
       #aura {
         position: fixed;
-        width: 400px;
-        height: 400px;
+        width: 500px;
+        height: 500px;
         background: radial-gradient(
           circle,
-          rgba(255, 77, 109, 0.15) 0%,
+          rgba(255, 77, 109, 0.2) 0%,
           transparent 70%
         );
         border-radius: 50%;
@@ -63,22 +63,22 @@
         position: relative;
         z-index: 10;
         text-align: center;
-        padding: 4rem 3rem;
+        padding: 3rem 3.5rem;
         width: 90%;
         max-width: 650px;
         border-radius: 50px;
 
-        /* Ultra Glassmorphism */
+        /* Enhanced Glassmorphism */
         background: linear-gradient(
           135deg,
-          rgba(255, 255, 255, 0.08) 0%,
-          rgba(255, 255, 255, 0.02) 100%
+          rgba(255, 255, 255, 0.1) 0%,
+          rgba(255, 255, 255, 0.03) 100%
         );
-        backdrop-filter: blur(30px);
-        -webkit-backdrop-filter: blur(30px);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        box-shadow: 0 40px 100px rgba(0, 0, 0, 0.8),
-          inset 0 0 40px rgba(255, 77, 109, 0.1);
+        backdrop-filter: blur(40px);
+        -webkit-backdrop-filter: blur(40px);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        box-shadow: 0 50px 120px rgba(0, 0, 0, 0.8),
+          inset 0 0 50px rgba(255, 77, 109, 0.15);
 
         animation: containerEntrance 2.5s cubic-bezier(0.22, 1, 0.36, 1)
           forwards;
@@ -97,57 +97,71 @@
         position: relative;
         width: 80px;
         height: 80px;
-        margin: 0 auto 2rem;
+        margin: 0 auto 1rem;
       }
 
       .heart-svg {
         width: 100%;
         height: 100%;
         fill: var(--primary-rose);
-        filter: drop-shadow(0 0 15px var(--primary-rose));
+        filter: drop-shadow(0 0 20px var(--primary-rose));
         animation: heartFloat 3s ease-in-out infinite;
       }
 
       @keyframes heartFloat {
         0%,
         100% {
-          transform: translateY(0) scale(1);
+          transform: translateY(0) scale(1) rotate(0deg);
         }
         50% {
-          transform: translateY(-15px) scale(1.1);
+          transform: translateY(-15px) scale(1.1) rotate(5deg);
         }
       }
 
       .title {
         font-family: "Great Vibes", cursive;
         font-size: 4.5rem;
-        color: var(--gold-light);
-        margin-bottom: 1.5rem;
+        margin-bottom: 1rem;
         letter-spacing: 2px;
-        background: linear-gradient(to bottom, #ffffff 0%, #ffccd5 100%);
+        background: linear-gradient(to bottom, #ffffff 30%, #ff85a1 100%);
         -webkit-background-clip: text;
         background-clip: text;
         color: transparent;
+        text-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      }
+
+      .message-box {
+        min-height: 140px;
+        margin-bottom: 1.5rem;
       }
 
       .message-content {
         font-size: 1.2rem;
-        line-height: 2;
-        color: #ffdae0;
+        line-height: 1.9;
+        color: #fff0f3;
         font-weight: 300;
         font-style: italic;
-        margin-bottom: 2.5rem;
-        min-height: 150px;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+      }
+
+      /* Stationary Rose Art */
+      .rose-art {
+        width: 100px;
+        height: auto;
+        margin: 10px auto;
+        display: block;
+        fill: var(--primary-rose);
+        filter: drop-shadow(0 0 10px rgba(255, 77, 109, 0.3));
       }
 
       .signature {
         font-family: "Dancing Script", cursive;
         font-size: 3rem;
         color: var(--accent-pink);
-        margin-top: 2rem;
+        margin-top: 1rem;
         opacity: 0;
-        transform: translateY(10px);
-        transition: all 1.5s ease;
+        transform: translateY(15px);
+        transition: all 2s cubic-bezier(0.16, 1, 0.3, 1);
       }
 
       .signature.show {
@@ -156,8 +170,12 @@
       }
 
       .reveal-btn {
-        background: transparent;
-        border: 1px solid rgba(255, 255, 255, 0.3);
+        background: linear-gradient(
+          45deg,
+          var(--primary-rose),
+          var(--accent-pink)
+        );
+        border: none;
         color: white;
         padding: 18px 50px;
         font-size: 0.9rem;
@@ -165,40 +183,20 @@
         cursor: pointer;
         transition: all 0.5s;
         text-transform: uppercase;
-        letter-spacing: 4px;
-        overflow: hidden;
-        position: relative;
-      }
-
-      .reveal-btn::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: -100%;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(
-          90deg,
-          transparent,
-          rgba(255, 255, 255, 0.2),
-          transparent
-        );
-        transition: 0.5s;
-      }
-
-      .reveal-btn:hover::before {
-        left: 100%;
+        letter-spacing: 5px;
+        font-weight: 600;
+        box-shadow: 0 10px 30px rgba(255, 77, 109, 0.4);
+        margin-top: 20px;
       }
 
       .reveal-btn:hover {
-        border-color: var(--primary-rose);
-        box-shadow: 0 0 30px rgba(255, 77, 109, 0.4);
         transform: scale(1.05);
+        box-shadow: 0 15px 35px rgba(255, 77, 109, 0.6);
       }
 
       @media (max-width: 600px) {
         .title {
-          font-size: 2.8rem;
+          font-size: 3rem;
         }
         .message-content {
           font-size: 1rem;
@@ -206,6 +204,9 @@
         }
         .container {
           padding: 2.5rem 1.5rem;
+        }
+        .rose-art {
+          width: 80px;
         }
       }
     </style>
@@ -226,13 +227,30 @@
         </svg>
       </div>
 
-      <h1 class="title">Dearest Nisa...</h1>
+      <h1 class="title">Dearest Nita...</h1>
 
       <div class="message-box">
         <p id="typewriter" class="message-content"></p>
       </div>
 
-      <div id="signature" class="signature">Eang Chanrithyrong</div>
+      <!-- Static Rose Illustration -->
+      <svg class="rose-art" viewBox="0 0 100 100">
+        <path
+          d="M50 30c0-10 10-15 20-5 5 10-5 20-20 25-15-5-25-15-20-25 10-10 20-5 20 5z"
+          fill="#ff4d6d"
+        />
+        <path
+          d="M50 35c-5-8-15-5-15 5 0 10 15 15 15 25 0-10 15-15 15-25 0-10-10-13-15-5z"
+          fill="#c9184a"
+        />
+        <path d="M50 50v40" stroke="#2d6a4f" stroke-width="2" />
+        <path
+          d="M50 70c-5 0-15-5-15-10 0 5 10 10 15 10zM50 65c5 0 15-5 15-10 0 5-10 10-15 10z"
+          fill="#40916c"
+        />
+      </svg>
+
+      <div id="signature" class="signature">Lytheng</div>
 
       <button class="reveal-btn" onclick="celebrate()">Touch My Heart</button>
     </div>
@@ -242,7 +260,7 @@
       const ctx = canvas.getContext("2d");
       const aura = document.getElementById("aura");
       let width, height;
-      let particles = [];
+      let elements = [];
       let stars = [];
 
       function init() {
@@ -265,72 +283,67 @@
         aura.style.top = e.clientY + "px";
       });
 
-      // Background Starfield
       function createStars() {
         stars = [];
         for (let i = 0; i < 150; i++) {
           stars.push({
             x: Math.random() * width,
             y: Math.random() * height,
-            size: Math.random() * 2,
-            speed: Math.random() * 0.5 + 0.1,
+            size: Math.random() * 1.5,
+            opacity: Math.random(),
+            blinkSpeed: Math.random() * 0.02 + 0.005,
           });
         }
       }
 
       const text =
-        "Nisa, from the quiet moments to the loud ones, my heart has consistently whispered your name. You are the poetry I never knew I could write, and the song I never want to end. I wanted you to know that I am hopelessly, eternally in love with you.";
-      let i = 0;
+        "Nita, ever since you walked into my life, everything has felt different—brighter, warmer, and more meaningful. Your presence is the quiet comfort I always look for. I am deeply, truly in love with you.";
+      let charIdx = 0;
 
       function typeEffect() {
-        if (i < text.length) {
-          document.getElementById("typewriter").innerHTML += text.charAt(i);
-          i++;
-          setTimeout(typeEffect, 50);
+        if (charIdx < text.length) {
+          document.getElementById("typewriter").innerHTML +=
+            text.charAt(charIdx);
+          charIdx++;
+          setTimeout(typeEffect, 45);
         } else {
           document.getElementById("signature").classList.add("show");
         }
       }
 
-      class Heart {
-        constructor(x, y, burst = false) {
+      class RomanticElement {
+        constructor(x, y, type = "heart", isBurst = false) {
           this.x = x;
           this.y = y;
-          this.size = burst ? Math.random() * 20 + 10 : Math.random() * 10 + 5;
-          this.color = `hsl(${Math.random() * 20 + 340}, 100%, 70%)`;
-          this.vx = burst
-            ? (Math.random() - 0.5) * 10
+          this.type = type;
+          this.size = isBurst
+            ? Math.random() * 20 + 10
+            : Math.random() * 10 + 5;
+          this.color = `hsl(${Math.random() * 20 + 340}, 100%, 75%)`;
+          this.vx = isBurst
+            ? (Math.random() - 0.5) * 12
             : (Math.random() - 0.5) * 2;
-          this.vy = burst ? (Math.random() - 0.5) * 10 : -Math.random() * 3 - 1;
+          this.vy = isBurst
+            ? (Math.random() - 0.5) * 12
+            : -Math.random() * 2 - 1;
           this.opacity = 1;
-          this.decay = burst ? 0.01 : 0.005;
+          this.rotation = Math.random() * Math.PI * 2;
+          this.rotationSpeed = (Math.random() - 0.5) * 0.05;
+          this.decay = isBurst ? 0.015 : 0.004;
         }
 
         draw() {
           ctx.save();
+          ctx.translate(this.x, this.y);
+          ctx.rotate(this.rotation);
           ctx.globalAlpha = this.opacity;
           ctx.fillStyle = this.color;
-          ctx.shadowBlur = 15;
-          ctx.shadowColor = this.color;
+
           ctx.beginPath();
           const s = this.size;
-          ctx.moveTo(this.x, this.y);
-          ctx.bezierCurveTo(
-            this.x - s,
-            this.y - s,
-            this.x - s * 1.5,
-            this.y + s / 1.5,
-            this.x,
-            this.y + s * 1.5
-          );
-          ctx.bezierCurveTo(
-            this.x + s * 1.5,
-            this.y + s / 1.5,
-            this.x + s,
-            this.y - s,
-            this.x,
-            this.y
-          );
+          ctx.moveTo(0, 0);
+          ctx.bezierCurveTo(-s, -s, -s * 1.5, s / 1.5, 0, s * 1.5);
+          ctx.bezierCurveTo(s * 1.5, s / 1.5, s, -s, 0, 0);
           ctx.fill();
           ctx.restore();
         }
@@ -338,21 +351,23 @@
         update() {
           this.x += this.vx;
           this.y += this.vy;
+          this.rotation += this.rotationSpeed;
           this.opacity -= this.decay;
         }
       }
 
       function celebrate() {
+        for (let i = 0; i < 80; i++) {
+          elements.push(
+            new RomanticElement(width / 2, height / 2, "heart", true)
+          );
+        }
         aura.style.width = "1000px";
         aura.style.height = "1000px";
         setTimeout(() => {
-          aura.style.width = "400px";
-          aura.style.height = "400px";
-        }, 500);
-
-        for (let i = 0; i < 60; i++) {
-          particles.push(new Heart(width / 2, height / 2, true));
-        }
+          aura.style.width = "500px";
+          aura.style.height = "500px";
+        }, 600);
       }
 
       function animate() {
@@ -365,28 +380,30 @@
           width
         );
         grad.addColorStop(0, "#2b0410");
-        grad.addColorStop(1, "#1a0208");
+        grad.addColorStop(1, "#0a0104");
         ctx.fillStyle = grad;
         ctx.fillRect(0, 0, width, height);
 
-        ctx.fillStyle = "white";
         stars.forEach((star) => {
-          ctx.globalAlpha = Math.random() * 0.5 + 0.5;
+          star.opacity += star.blinkSpeed;
+          if (star.opacity > 1 || star.opacity < 0) star.blinkSpeed *= -1;
+          ctx.globalAlpha = Math.max(0, star.opacity);
+          ctx.fillStyle = "white";
           ctx.beginPath();
           ctx.arc(star.x, star.y, star.size, 0, Math.PI * 2);
           ctx.fill();
-          star.y -= star.speed;
-          if (star.y < 0) star.y = height;
         });
 
-        if (Math.random() < 0.08) {
-          particles.push(new Heart(Math.random() * width, height + 20));
+        if (Math.random() < 0.1) {
+          elements.push(
+            new RomanticElement(Math.random() * width, height + 50)
+          );
         }
 
-        for (let i = particles.length - 1; i >= 0; i--) {
-          particles[i].update();
-          particles[i].draw();
-          if (particles[i].opacity <= 0) particles.splice(i, 1);
+        for (let i = elements.length - 1; i >= 0; i--) {
+          elements[i].update();
+          elements[i].draw();
+          if (elements[i].opacity <= 0) elements.splice(i, 1);
         }
 
         requestAnimationFrame(animate);
